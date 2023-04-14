@@ -189,7 +189,7 @@ Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you f
 
 ## Authors & contributors
 
-The original setup of this repository is by [UwU](https://github.com/l2700l).
+The original setup of this repository is by [Alexander Hoffman](https://github.com/l2700l).
 
 For a full list of all authors and contributors, see [the contributors page](https://github.com/l2700l/reterm/contributors).
 
