@@ -14,7 +14,7 @@ jobs:
       - name: 🚀 Run stale
         uses: actions/stale@v3
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GH_TOKEN }}
           days-before-stale: 30
           days-before-close: 7
           remove-stale-when-updated: true
