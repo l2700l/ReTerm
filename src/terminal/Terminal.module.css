@@ -1,0 +1,33 @@
+.terminal {
+  width: 99.75%;
+  font-family: "Consola Mono", Arial, serif;
+  background-color: #38343c;
+  border: 1px solid #38343c;
+  height: 100%;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+@media (prefers-color-scheme: light) {
+  .terminal {
+    box-shadow: 0 0 10px 4px #989898;
+  }
+}
+
+.terminal__top {
+  display: flex;
+  position: relative;
+  width: 100%;
+  color: #959199;
+}
+.terminal__top .terminal__header {
+  text-align: center;
+  line-height: 1rem;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+/*# sourceMappingURL=Terminal.module.css.map */

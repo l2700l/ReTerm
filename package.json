@@ -1,0 +1,45 @@
+{
+  "name": "reterm",
+  "version": "0.0.1",
+  "description": "Full featured terminal simulator",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css dist/",
+    "build": "npm run clean && tsc && npm run copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/l2700l/reterm.git"
+  },
+  "keywords": [
+    "react",
+    "terminal",
+    "simulator",
+    "npm"
+  ],
+  "author": "l2700l",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/l2700l/reterm/issues"
+  },
+  "homepage": "https://github.com/l2700l/reterm#readme",
+  "devDependencies": {
+    "@types/react": "^18.0.35",
+    "copyfiles": "^2.4.1",
+    "node-sass": "^8.0.0",
+    "react": "^18.2.0",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.0",
+    "sass": "^1.62.0",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^17.0.0"
+  }
+}

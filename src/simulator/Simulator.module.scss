@@ -1,0 +1,67 @@
+.simulator {
+    --simulatorBackground: #282A34;
+    --computerTextColor: #5FBDAD;
+    --atTextColor: #75C6D0;
+    --pathTextColor: #FF479C;
+    --outputTextColor: #FFFFFF;
+    --userTextColor: #A380DA;
+    --commandTextColor: #7CC9DC;
+    font-family: 'Consola Mono', Arial, serif;
+    color: var(--outputTextColor);
+    background-color: var(--simulatorBackground);
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    overflow-x: hidden;
+}
+
+.simulator__line_padding {
+    margin-left: .5rem;
+}
+
+.simulator__line {
+    display: flex;
+    width: 100%;
+    white-space: pre;
+    position: relative;
+    margin-left: .5rem;
+}
+
+.simulator__user {
+    color: var(--userTextColor);
+}
+
+.simulator__computer {
+    color: var(--computerTextColor);
+}
+
+.simulator__at {
+    color: var(--atTextColor);
+}
+
+.simulator__path {
+    color: var(--pathTextColor);
+}
+
+.simulator__command {
+    color: var(--commandTextColor);
+    background-color: var(--simulatorBackground);
+    margin-left: .4rem;
+}
+
+.simulator__input {
+    display: flex;
+}
+
+input.simulator__command {
+    font-family: inherit;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    outline: none;
+    font-size: inherit;
+    flex: 1;
+    margin-left: calc(1rem - 2px);
+}
