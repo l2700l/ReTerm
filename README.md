@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 align="center"> 
   <a href="https://github.com/l2700l/reterm">
     <img src="docs/images/logo.svg" alt="Logo" width="100" height="100">
   </a>
