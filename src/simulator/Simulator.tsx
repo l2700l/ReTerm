@@ -45,7 +45,7 @@ const Simulator: React.FC<SimulatorProps> = ({
   const [command, setCommand] = useState<string | undefined>();
   const [updatedCommand, setUpdatedCommand] = useState<string | undefined>();
   const [, setHistoryIndex] = useState(0);
-  const filteredBuiltInCommands = useRef(Object.fromEntries(Object.entries(Commands).filter((params) => (typeof builtInCommands[params[0] as keyof typeof builtInCommands] === 'undefined' || builtInCommands[params[0] as keyof typeof builtInCommands]))));
+  const filteredBuiltInCommands = useRef<Partial<Record<Commands, boolean>>>(Object.fromEntries(Object.entries(Commands).filter((params) => (typeof builtInCommands[params[0] as keyof typeof builtInCommands] === 'undefined' || builtInCommands[params[0] as keyof typeof builtInCommands]))) as Partial<Record<Commands, boolean>>);
 
   const handleHistory = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'ArrowUp') {
@@ -126,7 +126,7 @@ const Simulator: React.FC<SimulatorProps> = ({
   const [device, setDevice] = useState<device>(
     useDeviceData(window.navigator.userAgent)
   );
-  const [help] = useState<string>(generateHelp(applications));
+  const [help] = useState<string>(generateHelp(filteredBuiltInCommands.current, applications));
   // endregion
 
   const closeApp = (output: ReactNode = '') => {

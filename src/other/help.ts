@@ -1,30 +1,30 @@
 import { TermApp } from '../interfaces/TermApp';
+import { Commands } from '../simulator/commands';
 
-export const generateHelp = (applications: Record<string, TermApp>): string => {
+export const generateHelp = (builtInApplications: Partial<Record<Commands, boolean>>, applications: Record<string, TermApp>): string => {
   let base = `command <required> [optional]
 
 usage:
-
-ls [path]
-    – show files and directories
-cd <path>
-    – change directory
-cat <path to file>
-    – read file
-whoiam
-    – show user
-mkdir <path>
-    – create directory
-rm [-R] <path>
-    - remove file or directory
-cp <'path from'> <'path to'>
-    - copy file
-echo <data>
-    – write to output
-clear
-    – clear outputs & commands
-rev
-    - expand string
+${builtInApplications.ls && `\nls [path]
+    – show files and directories` || ''}\
+${builtInApplications.cd && `\ncd <path>
+    – change directory` || ''}\
+${builtInApplications.cat && `\ncat <path to file>
+    – read file` || ''}\
+${builtInApplications.whoami && `\nwhoiam
+    – show user` || ''}\
+${builtInApplications.mkdir && `\nmkdir <path>
+    – create directory` || ''}\
+${builtInApplications.rm && `\nrm [-R] <path>
+    - remove file or directory` || ''}\
+${builtInApplications.cp && `\ncp <'path from'> <'path to'>
+    - copy file` || ''}\
+${builtInApplications.echo && `\necho <data>
+    – write to output` || ''}\
+${builtInApplications.clear && `\nclear
+    – clear outputs & commands` || ''}\
+${builtInApplications.rev && `\nrev
+    - expand string` || ''}
 ${
   Object.keys(applications).length > 0
     ? `

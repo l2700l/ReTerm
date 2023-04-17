@@ -111,7 +111,7 @@ var Simulator = function (_a) {
     // endregion
     // region another
     var _q = useState(useDeviceData(window.navigator.userAgent)), device = _q[0], setDevice = _q[1];
-    var help = useState(generateHelp(applications))[0];
+    var help = useState(generateHelp(filteredBuiltInCommands.current, applications))[0];
     // endregion
     var closeApp = function (output) {
         if (output === void 0) { output = ''; }
