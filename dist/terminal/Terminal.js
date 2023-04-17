@@ -11,7 +11,7 @@ var Terminal = function (_a) {
         outputTextColor: '#FFFFFF',
         userTextColor: '#A380DA',
         commandTextColor: '#7CC9DC',
-    } : _e, _f = _a.fs, fs = _f === void 0 ? {} : _f, _g = _a.applications, applications = _g === void 0 ? {} : _g;
+    } : _e, _f = _a.fs, fs = _f === void 0 ? {} : _f, _g = _a.applications, applications = _g === void 0 ? {} : _g, builtInCommands = _a.builtInCommands;
     var _h = useState(window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'), orientation = _h[0], setOrientation = _h[1];
     var handleResize = function () {
         if (window.innerWidth > window.innerHeight) {
@@ -32,7 +32,7 @@ var Terminal = function (_a) {
                 user,
                 "@",
                 name)),
-        React.createElement(Simulator, { name: name, user: user, prompt: prompt, borderRadius: { bottomLeft: '0.5rem', bottomRight: '0.5rem' }, startMessage: startMessage, theme: theme, fs: fs, applications: applications }))) : (React.createElement("h2", { style: { textAlign: 'center' } },
+        React.createElement(Simulator, { name: name, user: user, prompt: prompt, borderRadius: { bottomLeft: '0.5rem', bottomRight: '0.5rem' }, startMessage: startMessage, theme: theme, fs: fs, applications: applications, builtInCommands: builtInCommands }))) : (React.createElement("h2", { style: { textAlign: 'center' } },
         "Use ",
         React.createElement("i", null, "landscape"),
         " orientation!"))));

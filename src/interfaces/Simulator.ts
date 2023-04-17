@@ -1,4 +1,5 @@
 import { TermApp } from './TermApp';
+import { Commands } from '../simulator/commands';
 
 export type SimulatorProps = {
   user?: string;
@@ -22,4 +23,5 @@ export type SimulatorProps = {
   };
   fs?: Record<string, any>;
   applications?: Record<string, TermApp>;
+  builtInCommands?: Partial<Record<Commands, boolean>>;
 };

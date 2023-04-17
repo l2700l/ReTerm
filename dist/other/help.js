@@ -1,6 +1,6 @@
-export var generateHelp = function (applications) {
+export var generateHelp = function (builtInApplications, applications) {
     var _a, _b, _c;
-    var base = "command <required> [optional]\n\nusage:\n\nls [path]\n    \u2013 show files and directories\ncd <path>\n    \u2013 change directory\ncat <path to file>\n    \u2013 read file\nwhoiam\n    \u2013 show user\nmkdir <path>\n    \u2013 create directory\nrm [-R] <path>\n    - remove file or directory\ncp <'path from'> <'path to'>\n    - copy file\necho <data>\n    \u2013 write to output\nclear\n    \u2013 clear outputs & commands\nrev\n    - expand string\n".concat(Object.keys(applications).length > 0
+    var base = "command <required> [optional]\n\nusage:\n".concat(builtInApplications.ls && "\nls [path]\n    \u2013 show files and directories" || '').concat(builtInApplications.cd && "\ncd <path>\n    \u2013 change directory" || '').concat(builtInApplications.cat && "\ncat <path to file>\n    \u2013 read file" || '').concat(builtInApplications.whoami && "\nwhoiam\n    \u2013 show user" || '').concat(builtInApplications.mkdir && "\nmkdir <path>\n    \u2013 create directory" || '').concat(builtInApplications.rm && "\nrm [-R] <path>\n    - remove file or directory" || '').concat(builtInApplications.cp && "\ncp <'path from'> <'path to'>\n    - copy file" || '').concat(builtInApplications.echo && "\necho <data>\n    \u2013 write to output" || '').concat(builtInApplications.clear && "\nclear\n    \u2013 clear outputs & commands" || '').concat(builtInApplications.rev && "\nrev\n    - expand string" || '', "\n").concat(Object.keys(applications).length > 0
         ? "\n\nprograms:\n\n"
         : '');
     for (var command in applications) {

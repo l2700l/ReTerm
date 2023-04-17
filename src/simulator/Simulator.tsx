@@ -26,12 +26,26 @@ const Simulator: React.FC<SimulatorProps> = ({
   },
   fs = {},
   applications = {},
+  builtInCommands= {
+    help: true,
+    ls: true,
+    cd: true,
+    cat: true,
+    whoami: true,
+    clear: true,
+    mkdir: true,
+    echo: true,
+    rm: true,
+    cp: true,
+    rev: true
+  }
 }) => {
   // region commands
   const [commands, setCommands] = useState<Array<string>>([]);
   const [command, setCommand] = useState<string | undefined>();
   const [updatedCommand, setUpdatedCommand] = useState<string | undefined>();
   const [, setHistoryIndex] = useState(0);
+  const filteredBuiltInCommands = useRef<Partial<Record<Commands, boolean>>>(Object.fromEntries(Object.entries(Commands).filter((params) => (typeof builtInCommands[params[0] as keyof typeof builtInCommands] === 'undefined' || builtInCommands[params[0] as keyof typeof builtInCommands]))) as Partial<Record<Commands, boolean>>);
 
   const handleHistory = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'ArrowUp') {
@@ -112,7 +126,7 @@ const Simulator: React.FC<SimulatorProps> = ({
   const [device, setDevice] = useState<device>(
     useDeviceData(window.navigator.userAgent)
   );
-  const [help] = useState<string>(generateHelp(applications));
+  const [help] = useState<string>(generateHelp(filteredBuiltInCommands.current, applications));
   // endregion
 
   const closeApp = (output: ReactNode = '') => {
@@ -151,9 +165,10 @@ const Simulator: React.FC<SimulatorProps> = ({
       finishExecute(command);
       return;
     }
+    console.log(filteredBuiltInCommands.current)
     if (
       !isApplication &&
-      !Object.keys(Commands).includes(commandArray[0].toLowerCase())
+      !Object.keys(filteredBuiltInCommands.current).includes(commandArray[0].toLowerCase())
     ) {
       setOutputs((prevState) => [
         ...prevState,
@@ -166,12 +181,6 @@ const Simulator: React.FC<SimulatorProps> = ({
       switch (
         Commands[commandArray[0].toLowerCase() as keyof typeof Commands]
       ) {
-        case Commands.empty:
-          setOutputs((prevState) => [
-            ...prevState,
-            { output: '', path: currentPath },
-          ]);
-          break;
         case Commands.help:
           setOutputs((prevState) => [
             ...prevState,

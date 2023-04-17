@@ -19,6 +19,7 @@ const Terminal: React.FC<SimulatorProps> = ({
   },
   fs = {},
   applications = {},
+  builtInCommands
 }) => {
   const [orientation, setOrientation] = useState<'landscape' | 'portrait'>(
     window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'
@@ -53,6 +54,7 @@ const Terminal: React.FC<SimulatorProps> = ({
             theme={theme}
             fs={fs}
             applications={applications}
+            builtInCommands={builtInCommands}
           />
         </div>
       ) : (

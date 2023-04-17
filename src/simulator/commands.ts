@@ -1,5 +1,4 @@
 export enum Commands {
-  empty = '',
   help = 'help',
   ls = 'ls',
   cd = 'cd',
