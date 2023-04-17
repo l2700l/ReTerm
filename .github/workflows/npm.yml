@@ -19,7 +19,7 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           npm version ${{ github.event.Inputs.version }} --allow-same-version
-          git push origin master
+          git push origin production
           git push origin v${{ github.event.Inputs.version }}
       - run: npm publish
         env:
