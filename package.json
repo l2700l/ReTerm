@@ -25,6 +25,9 @@
     "url": "https://github.com/l2700l/reterm/issues"
   },
   "homepage": "https://github.com/l2700l/reterm#readme",
+  "dependencies": {
+    "react-device-detect": "^2.2.3"
+  },
   "devDependencies": {
     "@types/react": "^18.0.35",
     "copyfiles": "^2.4.1",
