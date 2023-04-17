@@ -1,6 +1,5 @@
 export var Commands;
 (function (Commands) {
-    Commands["empty"] = "";
     Commands["help"] = "help";
     Commands["ls"] = "ls";
     Commands["cd"] = "cd";

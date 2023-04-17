@@ -24,12 +24,25 @@ var Simulator = function (_a) {
         outputTextColor: '#FFFFFF',
         userTextColor: '#A380DA',
         commandTextColor: '#7CC9DC',
-    } : _e, _f = _a.fs, fs = _f === void 0 ? {} : _f, _g = _a.applications, applications = _g === void 0 ? {} : _g;
+    } : _e, _f = _a.fs, fs = _f === void 0 ? {} : _f, _g = _a.applications, applications = _g === void 0 ? {} : _g, _h = _a.builtInCommands, builtInCommands = _h === void 0 ? {
+        help: true,
+        ls: true,
+        cd: true,
+        cat: true,
+        whoami: true,
+        clear: true,
+        mkdir: true,
+        echo: true,
+        rm: true,
+        cp: true,
+        rev: true
+    } : _h;
     // region commands
-    var _h = useState([]), commands = _h[0], setCommands = _h[1];
-    var _j = useState(), command = _j[0], setCommand = _j[1];
-    var _k = useState(), updatedCommand = _k[0], setUpdatedCommand = _k[1];
-    var _l = useState(0), setHistoryIndex = _l[1];
+    var _j = useState([]), commands = _j[0], setCommands = _j[1];
+    var _k = useState(), command = _k[0], setCommand = _k[1];
+    var _l = useState(), updatedCommand = _l[0], setUpdatedCommand = _l[1];
+    var _m = useState(0), setHistoryIndex = _m[1];
+    var filteredBuiltInCommands = useRef(Object.fromEntries(Object.entries(Commands).filter(function (params) { return (typeof builtInCommands[params[0]] === 'undefined' || builtInCommands[params[0]]); })));
     var handleHistory = function (e) {
         if (e.key === 'ArrowUp') {
             setHistoryIndex(function (prevState) {
@@ -50,11 +63,11 @@ var Simulator = function (_a) {
     };
     // endregion
     // region output
-    var _m = useState(startMessage ? [{ output: startMessage, path: FS.getHome() }] : []), outputs = _m[0], setOutputs = _m[1];
+    var _o = useState(startMessage ? [{ output: startMessage, path: FS.getHome() }] : []), outputs = _o[0], setOutputs = _o[1];
     // endregion
     // region paths
     var homePath = useState(FS.getHome())[0];
-    var _o = useState(FS.getHome()), currentPath = _o[0], setCurrentPath = _o[1];
+    var _p = useState(FS.getHome()), currentPath = _p[0], setCurrentPath = _p[1];
     useEffect(function () {
         FS.import(fs);
     }, []);
@@ -97,7 +110,7 @@ var Simulator = function (_a) {
     };
     // endregion
     // region another
-    var _p = useState(useDeviceData(window.navigator.userAgent)), device = _p[0], setDevice = _p[1];
+    var _q = useState(useDeviceData(window.navigator.userAgent)), device = _q[0], setDevice = _q[1];
     var help = useState(generateHelp(applications))[0];
     // endregion
     var closeApp = function (output) {
@@ -132,8 +145,9 @@ var Simulator = function (_a) {
             finishExecute(command);
             return;
         }
+        console.log(filteredBuiltInCommands.current);
         if (!isApplication &&
-            !Object.keys(Commands).includes(commandArray[0].toLowerCase())) {
+            !Object.keys(filteredBuiltInCommands.current).includes(commandArray[0].toLowerCase())) {
             setOutputs(function (prevState) { return __spreadArray(__spreadArray([], prevState, true), [
                 { output: 'command not found: ' + commandArray[0], path: currentPath },
             ], false); });
@@ -143,11 +157,6 @@ var Simulator = function (_a) {
         else {
             setDevice(deviceData);
             switch (Commands[commandArray[0].toLowerCase()]) {
-                case Commands.empty:
-                    setOutputs(function (prevState) { return __spreadArray(__spreadArray([], prevState, true), [
-                        { output: '', path: currentPath },
-                    ], false); });
-                    break;
                 case Commands.help:
                     setOutputs(function (prevState) { return __spreadArray(__spreadArray([], prevState, true), [
                         { output: help, path: currentPath },
