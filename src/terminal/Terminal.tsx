@@ -4,26 +4,19 @@ import Simulator from '../simulator/Simulator';
 import { SimulatorProps } from '../interfaces/Simulator';
 import Buttons from './Buttons';
 const Terminal: React.FC<SimulatorProps> = ({
-  user = 'user',
-  name = 'computer',
-  prompt = '$',
+  user,
+  name,
+  prompt,
   startMessage,
-  theme = {
-    simulatorBackground: '#282A34',
-    computerTextColor: '#5FBDAD',
-    atTextColor: '#75C6D0',
-    pathTextColor: '#FF479C',
-    outputTextColor: '#FFFFFF',
-    userTextColor: '#A380DA',
-    commandTextColor: '#7CC9DC',
-  },
-  fs = {},
-  applications = {},
+  theme,
+  fs,
+  applications,
   builtInCommands
 }) => {
   const [orientation, setOrientation] = useState<'landscape' | 'portrait'>(
     window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'
   );
+  
   const handleResize = () => {
     if (window.innerWidth > window.innerHeight) {
       setOrientation('landscape');
@@ -31,10 +24,12 @@ const Terminal: React.FC<SimulatorProps> = ({
       setOrientation('portrait');
     }
   };
+  
   useEffect(() => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  
   return (
     <>
       {orientation === 'landscape' ? (
