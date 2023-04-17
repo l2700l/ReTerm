@@ -146,16 +146,17 @@ function App(props) {
 
 ## Props
 
-| name         | description                                                                                                 | default       |
-|--------------|-------------------------------------------------------------------------------------------------------------|---------------|
-| user         | Username displayed on the command line. Value can be either a string or undefined                           | user          |
-| name         | Computer name displayed on the command line. Value can be either a string or undefined                      | computer      |
-| borderRadius | An object that defines the rounding of the border                                                           | 0,0,0,0       |
-| startMessage | A welcome message to show at the start, before the prompt begins. Value can be either a string or undefined | undefined     |
-| prompt       | Terminal prompt                                                                                             | $             |
-| theme        | Custom theme                                                                                                | colors in css |
-| fs           | Virtual file system - an object whose keys are only either strings or other similar objects                 | {}            |
-| applications | an object whose keys are commands and whose values - are objects implementing the TermApp interface         | {}            |
+| name            | description                                                                                                 | default       |
+|-----------------|-------------------------------------------------------------------------------------------------------------|---------------|
+| user            | Username displayed on the command line. Value can be either a string or undefined                           | user          |
+| name            | Computer name displayed on the command line. Value can be either a string or undefined                      | computer      |
+| borderRadius    | An object that defines the rounding of the border                                                           | 0,0,0,0       |
+| startMessage    | A welcome message to show at the start, before the prompt begins. Value can be either a string or undefined | undefined     |
+| prompt          | Terminal prompt                                                                                             | $             |
+| theme           | Custom theme                                                                                                | colors in css |
+| fs              | Virtual file system - an object whose keys are only either strings or other similar objects                 | {}            |
+| applications    | An object whose keys are commands and whose values - are objects implementing the TermApp interface         | {}            |
+| builtInCommands | Object responsible for the ability to use built-in commands                                                 | all true      |
 
 
 ## Roadmap
