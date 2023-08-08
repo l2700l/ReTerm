@@ -1,6 +1,6 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { Commands } from './commands';
-import styles from './Simulator.module.css';
+import styles from './Simulator.module.scss';
 import { useDeviceData } from 'react-device-detect';
 import { FS } from '../fs/fs';
 import AppsProvider from '../applications/AppsProvider';
@@ -165,7 +165,6 @@ const Simulator: React.FC<SimulatorProps> = ({
       finishExecute(command);
       return;
     }
-    console.log(filteredBuiltInCommands.current)
     if (
       !isApplication &&
       !Object.keys(filteredBuiltInCommands.current).includes(commandArray[0].toLowerCase())

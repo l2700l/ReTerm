@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styles from '../simulator/Simulator.module.css';
+import styles from '../simulator/Simulator.module.scss';
 
 const LineStart: React.FC<{
   user: string;

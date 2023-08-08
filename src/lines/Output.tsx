@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import LineStart from './LineStart';
-import styles from '../simulator/Simulator.module.css';
+import styles from "../simulator/Simulator.module.scss";
 
 const Output: React.FC<{
   user: string;
