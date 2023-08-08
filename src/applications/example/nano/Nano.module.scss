@@ -1,0 +1,57 @@
+.nano {
+  width: 100%;
+  height: 100%;
+  white-space: pre-wrap;
+  input {
+    border: none;
+    overflow: auto;
+    outline: none;
+  }
+}
+
+.nano__info {
+  padding-left: .35rem;
+  position: relative;
+  width: 100%;
+  display: flex;
+  background: #f9f9f9;
+  color: #1a1a1a;
+  .nano__info__name {
+    position: absolute;
+    left: 50%;
+  }
+  .nano__info__modified {
+    position: absolute;
+    right: 5%;
+  }
+}
+
+.nano__textArea {
+  width: 100%;
+  height: 75%;
+  resize: none;
+  border: none;
+  background: inherit;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.nano__commands {
+  display: flex;
+  flex-flow: row wrap;
+  span.nano__key {
+   background: #c5c5c5;
+    color: #1a1a1a;
+    margin-left: 1rem;
+    width: 8cap;
+    height: fit-content;
+  }
+}
+
+.nano__commands_vertical {
+  flex-direction: column;
+}

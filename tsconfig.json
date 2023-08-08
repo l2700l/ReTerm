@@ -6,7 +6,7 @@
     ],
     "compilerOptions": {
         "module": "esnext",
-        "lib": ["dom", "esnext"],
+        "lib": ["dom", "dom.iterable", "esnext"],
         "importHelpers": false,
         "declaration": true,
         "sourceMap": true,
@@ -19,6 +19,7 @@
         "noUnusedParameters": true,
         "moduleResolution": "node",
         "jsx": "react",
+        "target": "es5",
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,

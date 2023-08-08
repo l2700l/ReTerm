@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './Terminal.module.css'
+import styles from "./Terminal.module.scss";
 import Simulator from '../simulator/Simulator';
 import { SimulatorProps } from '../interfaces/Simulator';
 import Buttons from './Buttons';

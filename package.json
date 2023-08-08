@@ -5,9 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist/",
-    "copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css dist/",
-    "build": "npm run clean && tsc && npm run copy-files"
+    "build": "rollup -c --bundleConfigAsCjs"
   },
   "repository": {
     "type": "git",
@@ -16,8 +14,7 @@
   "keywords": [
     "react",
     "terminal",
-    "simulator",
-    "npm"
+    "simulator"
   ],
   "author": "l2700l",
   "license": "MIT",
@@ -25,23 +22,27 @@
     "url": "https://github.com/l2700l/reterm/issues"
   },
   "homepage": "https://github.com/l2700l/reterm#readme",
-  "dependencies": {
-    "react-device-detect": "^2.2.3"
-  },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.3",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-typescript": "^11.1.2",
     "@types/react": "^18.0.35",
-    "copyfiles": "^2.4.1",
     "node-sass": "^8.0.0",
-    "react": "^18.2.0",
+    "postcss": "^8.4.27",
+    "react": "^17.0.0",
     "react-device-detect": "^2.2.3",
-    "react-dom": "^18.2.0",
-    "rimraf": "^5.0.0",
+    "react-dom": "^17.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-styles": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.62.0",
+    "tslib": "^2.6.1",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
     "react": "^17.0.0",
-    "react-device-detect": "^2.2.3",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "react-device-detect": "^2.2.3"
   }
 }

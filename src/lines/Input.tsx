@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import LineStart from './LineStart';
-import styles from '../simulator/Simulator.module.css';
+import styles from '../simulator/Simulator.module.scss';
 
 type props = {
   user: string;
