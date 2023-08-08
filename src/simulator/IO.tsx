@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import Output from '../lines/Output';
-import styles from './Simulator.module.css';
+import styles from './Simulator.module.scss';
 import Input from '../lines/Input';
 
 export type IOProps = {
